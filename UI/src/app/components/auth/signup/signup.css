@@ -1,0 +1,358 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* ── Wrapper & Card ── */
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f2f4f8;
+  padding: 16px;
+}
+
+.login-card {
+  display: flex;
+  width: 920px;
+  max-width: 100%;
+  min-height: 480px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.13);
+  overflow: hidden;
+}
+
+/* ── Image panel ── */
+.image-sec {
+  width: 42%;
+  flex-shrink: 0;
+  background-image: url('/assets/SI.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 100%;
+}
+
+.image-sec::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(26,60,110,0.58) 0%, rgba(45,108,190,0.38) 100%);
+}
+
+/* ── Form panel ── */
+.form-sec {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 48px;
+  overflow-y: auto;
+}
+
+.form-inner {
+  width: 100%;
+  max-width: 340px;
+}
+
+/* ── Brand ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.brand-icon {
+  color: #457fd0;
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+}
+
+.brand-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #457fd0;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* ── Headings ── */
+h1 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+
+.signin-text {
+  font-size: 13px;
+  color: #6c757d;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.signin-text a {
+  color: #457fd0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signin-text a:hover {
+  text-decoration: underline;
+}
+
+/* ── Alerts ── */
+.server-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff5f5;
+  border-left: 3px solid #e74c3c;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #c0392b;
+}
+
+.server-success {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0fdf4;
+  border-left: 3px solid #27ae60;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #1e8449;
+}
+
+.server-error mat-icon,
+.server-success mat-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Form groups — FIXED height errors, layout never shifts ── */
+.form-group {
+  margin-bottom: 4px;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  border-bottom: 1.5px solid #d0d5dd;
+  padding-bottom: 6px;
+  transition: border-color 0.2s;
+}
+
+.field:focus-within {
+  border-color: #457fd0;
+}
+
+.field.field-error {
+  border-color: #e74c3c;
+}
+
+.field mat-icon {
+  color: #464444;
+  margin-right: 10px;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  transition: color 0.2s;
+}
+
+/* .field:focus-within mat-icon {
+  color: #457fd0;
+}
+
+.field.field-error mat-icon {
+  color: #e74c3c;
+} */
+
+.field input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #1a1a2e;
+  background: transparent;
+}
+
+.error {
+  display: block;
+  color: red;
+  font-size: 12px;
+  height: 18px;          /* always reserved — no reflow */
+  line-height: 18px;
+  /* padding-left: 30px;    aligns under the input text */
+  margin-bottom: 8px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 16px;
+  background: #457fd0;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.15s;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: #2d6cbe;
+  transform: translateY(-1px);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.eye-icon {
+  color: #adb5bd;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.eye-icon:hover {
+  color: #457fd0;
+}
+
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.otp-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(69,127,208,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.otp-badge mat-icon {
+  font-size: 26px;
+  width: 26px;
+  height: 26px;
+  color: #457fd0;
+}
+
+.otp-email {
+  color: #1a1a2e;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.otp-input {
+  font-size: 1.3rem !important;
+  font-weight: 600;
+  letter-spacing: 10px;
+  text-align: center;
+}
+
+.resend-row {
+  text-align: center;
+  margin-top: 12px;
+}
+
+.resend-btn {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: #457fd0;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.resend-btn mat-icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.resend-btn:disabled {
+  color: #adb5bd;
+  cursor: not-allowed;
+}
+
+.resend-btn:not(:disabled):hover {
+  color: #2d6cbe;
+}
+
+@media (max-width: 768px) {
+  .login-card {
+    border-radius: 14px;
+  }
+
+  .image-sec {
+    display: none;
+  }
+
+  .form-sec {
+    width: 100%;
+    padding: 36px 28px;
+  }
+
+  .image-sec {
+    min-height: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-wrapper {
+    padding: 12px;
+    align-items: flex-start;
+    padding-top: 32px;
+  }
+
+  .form-sec {
+    padding: 28px 18px;
+  }
+
+  h1 {
+    font-size: 1.35rem;
+  }
+}
